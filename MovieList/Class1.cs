@@ -6,8 +6,8 @@ namespace MovieList
 {
     class Movie
     {
-        private string Title { get; set; }
-        private string Genre { get; set; }
+        public string Title { get; set; }
+        public string Genre { get; set; }
 
         public Movie(string Title, string Genre)
         {
@@ -17,9 +17,7 @@ namespace MovieList
 
         public void PrintInfo()
         {
-            Console.WriteLine($"Title: {Title}");
-            Console.WriteLine($"Genre : {Genre}");
-
+            Console.WriteLine($"Title: {Title} Genre : {Genre}");
         }
 
     }

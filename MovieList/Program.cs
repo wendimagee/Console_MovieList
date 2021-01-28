@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MovieList
 {
@@ -7,22 +8,56 @@ namespace MovieList
         static void Main(string[] args)
         {
 
-            bool goAgain;
+            bool goAgain = true;
             while (goAgain)
             {
+                //we're making a list and checking it ONCE
+                //we're gonna find out who's smart or a dunce
+                List<Movie> movies = new List<Movie>();
+                movies.Add(new Movie("The Crowening", "horror"));
+                movies.Add(new Movie("V for Vendetta", "scifi"));
+                movies.Add(new Movie("Cars", "animated"));
+                movies.Add(new Movie("The Room", "drama"));
+                movies.Add(new Movie("Teeth", "horror"));
+                movies.Add(new Movie("2001: A Space Oddity", "scifi"));
+                movies.Add(new Movie("Wreck it Ralph", "animated"));
+                movies.Add(new Movie("Cruel Intentions", "drama"));
+                movies.Add(new Movie("Being John Malkovitch", "scifi"));
+                movies.Add(new Movie("The Devil's Rejects", "Horror"));
+
                 Console.WriteLine("Hello and Welcome to a very short list of movies!");
                 try
                 {
-
-
                     Console.WriteLine("Which genre would you like to see? animated, drama, horror, or scifi?");
                     string input = Console.ReadLine();
                     string userChoice = input.ToLower();
+                    if(userChoice == "horror")
+                    {
+                        foreach(string Movie in movies)
+                        {
+                            if(Movie.Genre == "horror")
+                            {
+                                Console.WriteLine({Title});
+                            }
+                        }
+                        
+                    }
                 }
                 catch
                 {
                     Console.WriteLine(@"I'm sorry you must enter ""animated"", ""drama"", ""horror"", or ""scifi""");
                 }
+                Console.WriteLine("\n\nWould you like to look at another genre?(y/n)");
+                char answer = char.Parse(Console.ReadLine()); 
+                if (char.ToLower(answer) == 'y')
+                {
+                    goAgain = true;
+                }
+                else
+                {
+                    goAgain = false;
+                }
+                       
             }
         }
     }
