@@ -15,10 +15,5 @@ namespace MovieList
             this.Genre = Genre;
         }
 
-        public void PrintInfo()
-        {
-            Console.WriteLine($"Title: {Title} Genre : {Genre}");
-        }
-
     }
 }
