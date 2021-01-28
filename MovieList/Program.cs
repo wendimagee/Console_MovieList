@@ -7,7 +7,6 @@ namespace MovieList
     {
         static void Main(string[] args)
         {
-
             bool goAgain = true;
             while (goAgain)
             {
@@ -30,18 +29,60 @@ namespace MovieList
                 {
                     Console.WriteLine("Which genre would you like to see? animated, drama, horror, or scifi?");
                     string input = Console.ReadLine();
-                    string userChoice = input.ToLower();
-                    if(userChoice == "horror")
+                    string userChoice = input.ToLower().Trim();
+                    if (userChoice == "horror")
                     {
-                        foreach(string Movie in movies)
+                        foreach (Movie m in movies)
                         {
-                            if(Movie.Genre == "horror")
+                            if (m.Genre == "horror")
                             {
-                                Console.WriteLine({Title});
+                                Console.WriteLine($"{m.Title}");
                             }
                         }
-                        
                     }
+                    if (userChoice == "animated")
+                    {
+                        foreach (Movie m in movies)
+                        {
+                            if (m.Genre == "animated")
+                            {
+                                Console.WriteLine($"{m.Title}");
+                            }
+                        }
+                    }
+                    if (userChoice == "drama")
+                    {
+                        foreach (Movie m in movies)
+                        {
+                            if (m.Genre == "drama")
+                            {
+                                Console.WriteLine($"{m.Title}");
+                            }
+                        }
+                    }
+                    if (userChoice == "scifi")
+                    {
+                        foreach (Movie m in movies)
+                        {
+                            if (m.Genre == "scifi")
+                            {
+                                Console.WriteLine($"{m.Title}");
+                            }
+                        }
+                    }
+                    if (userChoice == "")
+                    {
+                        throw  new ArgumentNullException();
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                }
+                catch (ArgumentNullException e)
+                {
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine("C'mon man, work with me here");
                 }
                 catch
                 {
