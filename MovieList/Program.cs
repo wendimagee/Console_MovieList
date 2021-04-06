@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static MovieList.Blockbuster;
 
 namespace MovieList
 {
@@ -40,7 +41,7 @@ namespace MovieList
                             }
                         }
                     }
-                    if (userChoice == "animated")
+                    else if (userChoice == "animated")
                     {
                         foreach (Movie m in movies)
                         {
@@ -50,7 +51,7 @@ namespace MovieList
                             }
                         }
                     }
-                    if (userChoice == "drama")
+                    else if (userChoice == "drama")
                     {
                         foreach (Movie m in movies)
                         {
@@ -60,7 +61,7 @@ namespace MovieList
                             }
                         }
                     }
-                    if (userChoice == "scifi")
+                    else if (userChoice == "scifi")
                     {
                         foreach (Movie m in movies)
                         {
@@ -70,7 +71,7 @@ namespace MovieList
                             }
                         }
                     }
-                    if (userChoice == "")
+                    else if (userChoice == "")
                     {
                         throw  new ArgumentNullException();
                     }
@@ -88,17 +89,30 @@ namespace MovieList
                 {
                     Console.WriteLine(@"I'm sorry you must enter ""animated"", ""drama"", ""horror"", or ""scifi""");
                 }
-                Console.WriteLine("\n\nWould you like to look at another genre?(y/n)");
-                char answer = char.Parse(Console.ReadLine()); 
-                if (char.ToLower(answer) == 'y')
+                try
                 {
-                    goAgain = true;
+                    Console.WriteLine("\n\nWould you like to look at another genre?(y/n)");
+                    char answer = char.Parse(Console.ReadLine());
+                    if (char.ToLower(answer) == 'y')
+                    {
+                        goAgain = true;
+                    }
+                    else if (char.ToLower(answer) == 'n')
+                    {
+                        Console.WriteLine("Thanks for stopping by! Have a good one!");
+                        goAgain = false;
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
                 }
-                else
+                catch
                 {
-                    goAgain = false;
+                    Console.WriteLine(@"I'm sorry, you must enter 'y' or 'n'");
                 }
-                       
+
+
             }
         }
     }
